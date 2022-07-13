@@ -77,11 +77,23 @@
   <body>
     <h1>Standard Facebook Pixel</h1>
 
-    <button onclick="sendEvent()">fbq('track', 'PageView')</button>
+    <p>
+      <strong>fbq()</strong>
+      <span id="testFbq"></span>
+    </p>
+
+    <button onclick="sendEvent()" id="buttonSendEvent">fbq('track', 'PageView')</button>
     <script>
       function sendEvent() {
         fbq('track', 'PageView');
+        document.getElementById('testFbq').textContent = 'called';
       }
+    </script>
+
+    <script>
+      (function () {
+        document.body.classList.add('completed');
+      })();
     </script>
 
     <hr />

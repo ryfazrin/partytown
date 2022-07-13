@@ -75,14 +75,28 @@
   <body>
     <h1>Standard Google Tag Manager (GTM)</h1>
 
-    <button onclick="pushFromData()">Standard dataLayer.push()</button>
+    <p>
+      <strong>dataLayer.push</strong>
+      <span id="testDataLayer"></span>
+    </p>
+
+    <button id="buttonDataLayerPush" onclick="pushFromData()">Standard dataLayer.push()</button>
     <script>
       function pushFromData() {
         const data = { event: 'button-click', some: { data: true } };
         console.log('dataLayer.push()');
         dataLayer.push(data);
+
+        const testDataLayer = document.getElementById('testDataLayer');
+        testDataLayer.textContent = 'pushed';
       }
     </script>
+
+  <script>
+    (function () {
+      document.body.classList.add('completed');
+    })();
+  </script>
 
     <hr />
     <p><a href="/tests/integrations/gtm/">Partytown GTM</a></p>
