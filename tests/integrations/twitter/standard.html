@@ -52,16 +52,17 @@
     </style>
     <script>
       setTimeout(() => {
-        let errors = document.querySelector('[data-pterror]');
+        let thirdParty = document.querySelector('.twitter-tweet-rendered');
         let elm = document.createElement('div');
-        elm.id = 'pterrors';
-        if (errors) {
-          elm.textContent = 'ERROR';
-        } else {
+        elm.id = 'errors';
+        console.log(thirdParty);
+        if (thirdParty) {
           elm.textContent = 'NO ERROR';
+        } else {
+          elm.textContent = 'ERROR';
         }
         document.body.appendChild(elm);
-      }, 3000);
+      }, 5000);
     </script>
   </head>
   <body>

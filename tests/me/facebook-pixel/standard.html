@@ -5,7 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Partytown Test Page" />
 
-    <title>Standard Adobe Launch</title>
+    <title>Standard Facebook Pixel</title>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '987747585216906');
+      fbq('track', 'PageView');
+    </script>
+    <!-- End Facebook Pixel Code -->
 
     <link
       rel="icon"
@@ -52,31 +75,17 @@
     </style>
   </head>
   <body>
-    <h1>Standard Adobe Launch</h1>
+    <h1>Standard Facebook Pixel</h1>
 
-    <button id="track">track</button>
-    <span id="result"></span>
-
+    <button onclick="sendEvent()">fbq('track', 'PageView')</button>
     <script>
-      (function () {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'launch-d4935864d5f5.min.js';
-        document.head.appendChild(script);
-      })();
+      function sendEvent() {
+        fbq('track', 'PageView');
+      }
     </script>
 
-  <script>
-    document.getElementById('track').addEventListener('click', () => {
-      window._satellite.setDebug(true);
-      window._satellite.track('generic-vp-v1');
-      document.body.classList.add('completed');
-      document.getElementById('result').innerHTML = `tracked`;
-    });
-  </script>
-
     <hr />
-    <p><a href="/tests/integrations/adobe-launch/">Partytown Adobe Launch</a></p>
+    <p><a href="/tests/integrations/facebook-pixel/">Partytown Facebook Pixel</a></p>
     <p><a href="/tests/">All Tests</a></p>
   </body>
 </html>

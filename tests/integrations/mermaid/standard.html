@@ -43,6 +43,19 @@
         margin: 0 5px;
       }
     </style>
+    <script>
+      setTimeout(() => {
+        let thirdParty = document.getElementsByTagName('svg');
+        let elm = document.createElement('div');
+        elm.id = 'errors';
+        if (thirdParty.length > 0) {
+          elm.textContent = 'NO ERROR';
+        } else {
+          elm.textContent = 'ERROR';
+        }
+        document.body.appendChild(elm);
+      }, 2000);
+    </script>
   </head>
   <body>
     <h1>Standard Mermaid</h1>

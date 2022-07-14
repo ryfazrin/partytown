@@ -67,6 +67,21 @@
       </li>
     </ul>
 
+    <script>
+      setTimeout(() => {
+        const text = $('h1').text();
+        let jQueryContent = document.getElementById('testSelect');
+        let elm = document.createElement('div');
+        elm.id = 'errors';
+        if (jQueryContent.textContent == text) {
+          elm.textContent = 'NO ERROR';
+        } else {
+          elm.textContent = 'ERROR';
+        }
+        document.body.appendChild(elm);
+      }, 3000);
+    </script>
+
     <script type="text/javascript">
       (function () {
         document.body.classList.add('completed');
