@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Partytown Test Page" />
+    <title>Integration Config</title>
+
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji;
+        font-size: 12px;
+      }
+      h1 {
+        margin: 0 0 15px 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        display: block;
+        padding: 16px 8px;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: blue;
+      }
+      a:hover {
+        background-color: #eee;
+      }
+      li {
+        display: flex;
+        margin: 15px 0;
+      }
+      li strong,
+      li code,
+      li button {
+        white-space: nowrap;
+        flex: 1;
+        margin: 0 5px;
+      }
+    </style>
+    <script>
+      console.log(document);
+      document.dir = 'ltr'; // https://html.spec.whatwg.org/multipage/dom.html#dom-document-dir
+    </script>
+  </head>
+  <body>
+    <h1>Standard Integration Config</h1>
+
+    <ul>
+      <li>
+        <strong>get() continue</strong>
+        <code id="testGetContinue"></code>
+        <script>
+          (function () {
+            document.getElementById('testGetContinue').textContent = document.title;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>get() hook</strong>
+        <code id="testGetHook"></code>
+        <script>
+          (function () {
+            document.getElementById('testGetHook').textContent = document.dir;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>get() window.innerWidth</strong>
+        <code id="testGetWindowHook"></code>
+        <script>
+          (function () {
+            document.getElementById('testGetWindowHook').textContent = window.innerWidth;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>set() continue</strong>
+        <code id="testSetContinue"></code>
+        <script>
+          (function () {
+            document.title = 'Continue Title Update';
+            document.getElementById('testSetContinue').textContent = document.title;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>set() prevent</strong>
+        <code id="testSetPrevent"></code>
+        <script>
+          (function () {
+            // document.body.innerHTML = 'smash!';
+            document.getElementById('testSetPrevent').textContent = 'prevented body.innerHTML';
+          })();
+        </script>
+      </li>
+
+      <!-- <li>
+        <strong>set() hook</strong>
+        <code><span id="testSetHook"></span></code>
+        <script>
+          (function () {
+            document.getElementById('testSetHook').innerText = 'value';
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>apply() continue</strong>
+        <code id="testApplyContinue"></code>
+        <script>
+          (function () {
+            const elm = document.getElementById('testApplyContinue');
+            elm.setAttribute('mph', 88);
+            document.getElementById('testApplyContinue').textContent = elm.getAttribute('mph');
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>apply() hook</strong>
+        <code id="testApplyHook"></code>
+        <script>
+          (function () {
+            document.write('smash!');
+            document.getElementById('testApplyHook').textContent = 'prevented document.write()';
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>apply() change args</strong>
+        <code id="testApplyArgs"></code>
+        <script>
+          (function () {
+            const elm = document.getElementById('testApplyArgs');
+            elm.setAttribute('gw', '9.99');
+            elm.textContent = elm.getAttribute('gw');
+          })();
+        </script>
+      </li> -->
+    </ul>
+
+    <script>
+      document.body.classList.add('completed');
+    </script>
+
+    <hr />
+    <p><a href="/tests/">All Tests</a></p>
+  </body>
+</html>
